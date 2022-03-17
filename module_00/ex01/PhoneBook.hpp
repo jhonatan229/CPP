@@ -8,6 +8,7 @@ class PhoneBook
 private:
 	Contact contacts[8];
 	int		oldest_index;
+	int		total;
 public:
 	PhoneBook();
 	void add_contact(Contact new_contact);

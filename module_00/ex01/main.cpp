@@ -31,6 +31,7 @@ int main(void)
 				getline(std::cin, dark_secret); 
 			Contact contact(index++ ,first_name, last_name, nickname, phone_number, dark_secret);
 			phone.add_contact(contact);
+			dark_secret.clear();
 			std::cout << "DONE!!" << std::endl;
 		}
 		if(awnser.compare("SEARCH") == 0){
@@ -40,4 +41,5 @@ int main(void)
 			phone.print_contact_by_index(find_index);
 		}
 	} while (awnser.compare("EXIT") != 0);
+	return (0);
 }

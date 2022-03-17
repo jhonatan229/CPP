@@ -24,7 +24,6 @@ void writeAndReplace(std::fstream *fread, std::fstream *fwrite, std::string n1, 
 	
 	std::getline (*fread,line);
 	while (line.empty() != true){
-		std::cout << line << std::endl;
 		new_line = ft_replace(line, n1, n2);
 		if (new_line.empty())
 			*fwrite << line;
@@ -40,7 +39,7 @@ void writeAndReplace(std::fstream *fread, std::fstream *fwrite, std::string n1, 
 int main(int argc, char **argv)
 {
 	if (argc != 4){
-		std::cout << "error";
+		std::cout << "error\n";
 		return (1);
 	}
 	std::fstream fr, fw;
@@ -50,11 +49,11 @@ int main(int argc, char **argv)
 	n1 = argv[2];
 	n2 = argv[3];
 	fr.open(argv[1]);
-	fw.open(new_file, std::fstream::out);
 	if (!fr){
-		std::cout << "Error open the file!";
+		std::cout << "Error open the file!\n";
 		return (1);
 	}
+	fw.open(new_file.c_str(), std::fstream::out);
 	writeAndReplace(&fr, &fw, n1, n2);
 	fr.close();
 	fw.close();

@@ -1,4 +1,4 @@
-#include "ZombieHorde.hpp"
+#include "zombieHorde.hpp"
 
 int main(void){
 	Zombie *horde = zombieHorde(7, "Aninha");
@@ -6,4 +6,5 @@ int main(void){
         horde[i].announce();
     }
 	delete[] horde;
+	return (0);
 }
