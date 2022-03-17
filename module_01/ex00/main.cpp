@@ -13,4 +13,5 @@ int main(void){
 	{
 		randomChump("murilinho");
 	}
+	return (0);
 }

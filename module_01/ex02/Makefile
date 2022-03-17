@@ -1,10 +1,9 @@
-NAME = phoneBook
+NAME = brain
 
 all: $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
-FILES = ./main.cpp ./PhoneBook.cpp ./Contact.cpp
-
+FILES = ./main.cpp
 CC = c++
 
 $(NAME): 

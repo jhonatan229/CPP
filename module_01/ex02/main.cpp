@@ -8,5 +8,6 @@ int main(void){
 	std::cout << &name << std::endl
 	<< stringPTR << std::endl << &stringREF;
 	std::cout << std::endl << name << std::endl
-	<< *stringPTR << std::endl << stringREF;
+	<< *stringPTR << std::endl << stringREF << std::endl;
+	return (0);
 }
