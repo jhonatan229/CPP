@@ -26,7 +26,7 @@ int main(void)
 	std::cout << "\n\n\n";
 	//as funções herdadas consomem os dados que foram instanciados no construtor padrão da classe pai
 	{
-		ScavTrap trapper;
+		ScavTrap trapper(ScavTrap("soldier"));
 		trapper.attack("soldier");
 		trapper.takeDamage(90);
 		trapper.beRepaired(80);

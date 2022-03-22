@@ -6,18 +6,17 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string 	_name;
 	unsigned int	_lifePoints;
 	unsigned int	_energiPoints;
 	unsigned int	_attackDamage;
-
+	unsigned int	_max_health;
 public:
 	ClapTrap();
 	ClapTrap(const std::string name);
 	ClapTrap(const ClapTrap &copy);
 	~ClapTrap();
-
 	ClapTrap &operator=(const ClapTrap &assign);
 
 	std::string getName() const;

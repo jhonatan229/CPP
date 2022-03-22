@@ -18,19 +18,25 @@ ScavTrap::ScavTrap(const std::string name)
 	_max_health = _lifePoints;
 	std::cout << "Custom ScavTrap constructor called!\n";
 }
-ScavTrap::ScavTrap(const ScavTrap &copy)
+ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
 {
-	_name = copy.getName();
-	std::cout << "Copy constructor called!\n";
+	this->operator=(copy);
+	std::cout << "Copy ScavTrap constructor called!\n";
 }
-ScavTrap::~ScavTrap()
-{
+
+ScavTrap::~ScavTrap(){
 	std::cout << "Default ScavTrap destructor called!\n";
 }
 ScavTrap &ScavTrap::operator=(const ScavTrap &assign){
-	this->_name = assign.getName();
-	return *this;
+	if (this != &assign){
+		this->_name = assign._name;
+		this->_lifePoints = assign._lifePoints;
+		this->_energiPoints = assign._energiPoints;
+		this->_attackDamage = assign._attackDamage;
+		this->_max_health = assign._lifePoints;
+	}
 	std::cout << "Default ScavTrap destructor called!\n";
+	return *this;
 }
 
 void ScavTrap::attack(const std::string &target)

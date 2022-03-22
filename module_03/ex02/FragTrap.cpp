@@ -19,22 +19,26 @@ FragTrap::FragTrap(const std::string name)
 	std::cout << "Custom FragTrap constructor called!\n";
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &copy): ScavTrap(copy)
 {
-	_name = copy.getName();
-	std::cout << "Copy constructor called!\n";
-}
-FragTrap::~FragTrap()
-{
-	std::cout << "Default FragTrap destructor called!\n";
+	this->operator=(copy);
+	std::cout << "Copy FragTrap constructor called!\n";
 }
 
+FragTrap::~FragTrap(){
+	std::cout << "Default FragTrap destructor called!\n";
+}
 FragTrap &FragTrap::operator=(const FragTrap &assign){
-	this->_name = assign.getName();
-	return *this;
+	if (this != &assign){
+		this->_name = assign._name;
+		this->_lifePoints = assign._lifePoints;
+		this->_energiPoints = assign._energiPoints;
+		this->_attackDamage = assign._attackDamage;
+		this->_max_health = assign._lifePoints;
+	}
 	std::cout << "Default FragTrap destructor called!\n";
+	return *this;
 }
-
 void FragTrap::highFivesGuys(){
 	std::cout << "HIGHFIVE EVERYBODYYYY!\n";
 }

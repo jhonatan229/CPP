@@ -33,5 +33,6 @@ int main(void)
 		trapper->beRepaired(10);
 		trapper->beRepaired(10);
 		trapper->guardGate();
+		delete trapper;
 	}
 }
