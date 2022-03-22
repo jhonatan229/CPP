@@ -1,9 +1,9 @@
-NAME = Animal
+NAME = Brain
 
 all: $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
-FILES = ./main.cpp ./Animal.cpp ./Cat.cpp ./Dog.cpp ./WrongAnimal.cpp ./WrongCat.cpp
+FILES = ./main.cpp ./Animal.cpp ./Cat.cpp ./Dog.cpp ./Brain.cpp
 
 CC = c++
 
