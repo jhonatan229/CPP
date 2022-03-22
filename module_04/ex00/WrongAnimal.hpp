@@ -8,7 +8,6 @@ class WrongAnimal
 {
 protected:
 	std::string _type;
-	std::string _sound;
 public:
 	WrongAnimal();
 	WrongAnimal(std::string const type);

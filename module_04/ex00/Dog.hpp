@@ -11,6 +11,7 @@ public:
 	Dog(const Dog &copy);
 	Dog &operator=(const Dog &assign);
 	~Dog();
+	void makeSound();
 };
 
 #endif // DOG_HPP

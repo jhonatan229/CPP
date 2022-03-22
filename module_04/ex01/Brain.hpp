@@ -14,6 +14,7 @@ public:
 	Brain &operator=(Brain const &assign);
 	~Brain();
 	std::string getIdeas(int local) const;
+	void setIdea(int local, std::string idea);
 };
 
 #endif // BRAIN_HPP

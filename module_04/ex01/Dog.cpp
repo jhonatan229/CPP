@@ -1,37 +1,47 @@
 #include "./Dog.hpp"
 
-Dog::Dog()
-{
+Dog::Dog(){
 	_type = "dog";
-	_sound = "AU AU";
-	_brain = new Brain();
+	_ideas = new Brain();
 	std::cout << "Dog default constructor called!\n";
 }
 
-Dog::Dog(const std::string type)
-{
+Dog::Dog(const std::string type){
 	this->_type = type;
-	_sound = "AU AU";
-	_brain = new Brain();
+	_ideas = new Brain();
 	std::cout << "Dog custom constructor called!\n";
 }
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy): Animal(copy)
 {
-	this->_type = copy.getType();
-	this->_brain = copy._brain;
-	this->_sound = copy._sound;
-	std::cout << "Dog assign constructor called!\n";
+	this->operator=(copy);
+	std::cout << "Copy Dog constructor called!\n";
 }
-Dog &Dog::operator=(const Dog &assign)
-{
-	this->_type = assign.getType();
-	this->_brain = assign._brain;
-	this->_sound = assign._sound;
-	std::cout << "Dog operator called!\n";
+
+Dog::~Dog(){
+	if(this->_ideas != NULL)
+		delete this->_ideas;
+	std::cout << "Default Dog destructor called!\n";
+}
+Dog &Dog::operator=(const Dog &assign){
+	if (this != &assign){
+		if (this->_ideas != NULL){
+			this->_ideas = new Brain();
+			this->_ideas = assign._ideas;
+		}
+		this->_type = assign._type;
+	}
+	std::cout << "Default Dog destructor called!\n";
 	return *this;
 }
-Dog::~Dog()
-{
-	delete(_brain);
-	std::cout << "Dog default destructor called!\n";
+
+void Dog::makeSound(){
+	std::cout << "AUUUUUU AU AUUUUUU!\n";
+}
+
+void Dog::setIdea(int local, std::string memory){
+	this->_ideas->setIdea(local, memory);
+}
+
+std::string Dog::getIdea(int local){
+	return(this->_ideas->getIdeas(local));
 }

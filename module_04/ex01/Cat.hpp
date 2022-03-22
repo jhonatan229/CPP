@@ -7,14 +7,16 @@
 class Cat : public Animal
 {
 private:
-	Brain *_brain;
-
+	Brain *_ideas;
 public:
 	Cat();
 	Cat(const std::string type);
 	Cat(const Cat &copy);
 	Cat &operator=(const Cat &assign);
 	~Cat();
+	void makeSound();
+	void setIdea(int local, std::string memory);
+	std::string getIdea(int local);
 };
 
 #endif // CAT_HPP

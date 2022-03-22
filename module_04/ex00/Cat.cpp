@@ -2,7 +2,6 @@
 
 Cat::Cat(){
 	_type = "cat";
-	_sound = "MIAU!";
 	std::cout << "Cat default constructor called!\n";
 }
 
@@ -10,15 +9,23 @@ Cat::Cat(const std::string type){
 	this->_type = type;
 	std::cout << "Cat custom constructor called!\n";
 }
-Cat::Cat(const Cat &copy){
-	this->_type = copy.getType();
-	std::cout << "Cat assign constructor called!\n";
+Cat::Cat(const Cat &copy): Animal(copy)
+{
+	this->operator=(copy);
+	std::cout << "Copy Cat constructor called!\n";
+}
+
+Cat::~Cat(){
+	std::cout << "Default Cat destructor called!\n";
 }
 Cat &Cat::operator=(const Cat &assign){
-	this->_type = assign.getType();
-	std::cout << "Cat operator called!\n";
+	if (this != &assign){
+		this->_type = assign._type;
+	}
+	std::cout << "Default Cat destructor called!\n";
 	return *this;
 }
-Cat::~Cat(){
-	std::cout << "Cat default destructor called!\n";
+
+void Cat::makeSound(){
+	std::cout << "MIAUUUUUU!\n";
 }

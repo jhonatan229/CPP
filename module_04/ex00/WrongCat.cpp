@@ -9,15 +9,22 @@ WrongCat::WrongCat(const std::string type){
 	this->_type = type;
 	std::cout << "WrongCat custom constructor called!\n";
 }
-WrongCat::WrongCat(const WrongCat &copy){
-	this->_type = copy.getType();
-	std::cout << "WrongCat assign constructor called!\n";
+WrongCat::WrongCat(const WrongCat &copy): WrongAnimal(copy)
+{
+	this->operator=(copy);
+	std::cout << "Copy WrongCat constructor called!\n";
+}
+
+WrongCat::~WrongCat(){
+	std::cout << "Default WrongCat destructor called!\n";
 }
 WrongCat &WrongCat::operator=(const WrongCat &assign){
-	this->_type = assign.getType();
-	std::cout << "WrongCat operator called!\n";
+	if (this != &assign){
+		this->_type = assign._type;
+	}
+	std::cout << "Default WrongCat destructor called!\n";
 	return *this;
 }
-WrongCat::~WrongCat(){
-	std::cout << "Cat default destructor called!\n";
+void WrongCat::makeSound(){
+	std::cout << "MIAUUUUUU!\n";
 }
