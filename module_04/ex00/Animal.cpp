@@ -21,7 +21,7 @@ Animal &Animal::operator=(const Animal &assign){
 	if (this != &assign){
 		this->_type = assign._type;
 	}
-	std::cout << "Default Animal destructor called!\n";
+	std::cout << "Default Animal operator called!\n";
 	return *this;
 }
 std::string Animal::getType() const{
