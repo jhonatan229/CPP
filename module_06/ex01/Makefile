@@ -1,10 +1,9 @@
-NAME = intern
+NAME = serialise
 
 all: $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
-FILES = ./Intern.cpp ./main.cpp ./Bureaucrat.cpp ./Form.cpp ./RobotomyRequestForm.cpp \
-		 ./ShrubberyCreationForm.cpp ./PresidentialPardonForm.cpp 
+FILES = ./main.cpp
 
 CC = c++
 
