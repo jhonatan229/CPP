@@ -3,7 +3,7 @@ NAME = fight
 all: $(NAME)
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
-FILES = ./main.cpp Weapon.cpp Human.cpp HumanA.cpp HumanB.cpp
+FILES = ./main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 CC = c++
 

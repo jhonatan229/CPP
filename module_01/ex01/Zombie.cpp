@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(){
-
+	Zombie::name = "default zombie";
 }
 Zombie::Zombie(std::string name){
 	Zombie::name = name;
