@@ -2,12 +2,13 @@
 #include "PhoneBook.hpp"
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 
 int main(void)
 {
 	std::string awnser;
 	PhoneBook 	phone;
-	int			find_index;
+	std::string	find_index;
 	int 		index = 1;
 	std::string	first_name;
 	std::string	last_name;
@@ -16,6 +17,7 @@ int main(void)
 	std::string dark_secret;
 	do
 	{
+		awnser.clear();
 		std::cin >> awnser;
 		if(awnser.compare("ADD") == 0){
 			std::cout << "First name: ";
@@ -34,11 +36,16 @@ int main(void)
 			dark_secret.clear();
 			std::cout << "DONE!!" << std::endl;
 		}
-		if(awnser.compare("SEARCH") == 0){
+		else if(awnser.compare("SEARCH") == 0){
 			phone.print_contacts();
 			std::cout << "Give the index you want: ";
-			std::cin >> find_index;
-			phone.print_contact_by_index(find_index);
+			while(find_index.empty())
+				getline(std::cin, find_index); 
+			phone.print_contact_by_index(atoi(find_index.c_str()));
+			find_index.clear();
+		}
+		else {
+			std::cout << "Wrong command.\n";
 		}
 	} while (awnser.compare("EXIT") != 0);
 	return (0);

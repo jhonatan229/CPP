@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 		while (index < argc){
 			pos = 0;
 			while (argv[index][pos])
-				std::cout << (char)toupper(argv[index][pos++]);
+				std::cout << static_cast<char>(toupper(argv[index][pos++]));
 			std::cout << " ";
 			index++;
 		}

@@ -25,6 +25,11 @@ void PhoneBook::print_contacts(){
 void PhoneBook::print_contact_by_index(int to_find){
 	int result = 0;
 	int	index = 0;
+	if (to_find <= 0)
+	{
+		std::cout << "Contact doesn't exist!" << std::endl;
+		return;
+	}
 	while (index < total)
 		result += contacts[index++].print_contact(to_find);
 	if(result == 0)
