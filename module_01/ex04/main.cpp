@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 std::string ft_replace(std::string str, std::string n1, std::string n2){
 	
@@ -14,26 +15,22 @@ std::string ft_replace(std::string str, std::string n1, std::string n2){
 		new_str = str.substr(0, found) + n2 + str.substr(found + n1.length(), str.size());
 		str.clear();
 		str = new_str;
-		found = str.find(n1, 0);
+		found = str.find(n1, ++found);
 	}
 	return new_str;
 }
 
 void writeAndReplace(std::fstream *fread, std::fstream *fwrite, std::string n1, std::string n2){
 	std::string line, new_line;
-	
-	std::getline (*fread,line);
-	while (line.empty() != true){
-		new_line = ft_replace(line, n1, n2);
-		if (new_line.empty())
-			*fwrite << line;
-		else
-			*fwrite << new_line;
-		line.clear();
-		std::getline (*fread,line);
-		if (line.empty() != true)
-			*fwrite << std::endl;
-	}
+	std::stringstream buffer;
+
+	buffer << fread->rdbuf();
+	line = buffer.str();
+	new_line = ft_replace(line, n1, n2);
+	if (new_line.empty())
+		*fwrite << line;
+	else
+		*fwrite << new_line;
 }
 
 int main(int argc, char **argv)
