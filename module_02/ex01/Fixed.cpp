@@ -11,10 +11,12 @@ Fixed::Fixed(const Fixed &copy)
 }
 Fixed::Fixed(float const f)
 {
+	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPoint = roundf(f * (1 << this->_value));
 }
 Fixed::Fixed(int const i)
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPoint = i << this->_value;
 }
 Fixed::~Fixed()

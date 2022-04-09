@@ -12,8 +12,8 @@ private:
 	static const int _value = 8;
 public:
 	Fixed();
-	Fixed( float const f);
-	Fixed( int const i);
+	Fixed(float const f);
+	Fixed(int const i);
 	Fixed(const Fixed &copy);
 	~Fixed();
 
