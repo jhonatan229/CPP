@@ -15,12 +15,12 @@ Fixed::~Fixed()
 }
 Fixed &Fixed::operator=(const Fixed &assign)
 {
-	this->_fixedPoint = assign._fixedPoint;
+	this->_fixedPoint = assign.getRawBits();
 	std::cout << "Copy assignment operator called\n";
 	return *this;
 }
 
-int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called\n";
 	return this->_fixedPoint;

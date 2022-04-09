@@ -20,7 +20,7 @@ Fixed::~Fixed()
 }
 Fixed &Fixed::operator=(const Fixed &assign)
 {
-	this->_fixedPoint = assign._fixedPoint;
+	this->_fixedPoint = assign.getRawBits();
 	return *this;
 }
 
