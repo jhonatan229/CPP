@@ -1,10 +1,10 @@
 #if !defined(FRAGTRAP_HPP)
 #define FRAGTRAP_HPP
 
-#include "./ScavTrap.hpp"
+#include "./ClapTrap.hpp"
 
 
-class FragTrap : public ScavTrap
+class FragTrap : public ClapTrap
 {
 public:
 	FragTrap();
