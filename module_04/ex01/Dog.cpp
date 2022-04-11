@@ -23,18 +23,15 @@ Dog::~Dog(){
 	std::cout << "Default Dog destructor called!\n";
 }
 Dog &Dog::operator=(const Dog &assign){
-	if (this != &assign){
-		if (this->_ideas != NULL){
-			this->_ideas = new Brain();
-			this->_ideas = assign._ideas;
-		}
-		this->_type = assign._type;
-	}
-	std::cout << "Default Dog destructor called!\n";
+	if (this->_ideas == NULL)
+		this->_ideas = new Brain();
+	*(this->_ideas) = *(assign._ideas);
+	this->_type = assign._type;
+	std::cout << "Default Dog operator called!\n";
 	return *this;
 }
 
-void Dog::makeSound(){
+void Dog::makeSound() const{
 	std::cout << "AUUUUUU AU AUUUUUU!\n";
 }
 
@@ -42,6 +39,6 @@ void Dog::setIdea(int local, std::string memory){
 	this->_ideas->setIdea(local, memory);
 }
 
-std::string Dog::getIdea(int local){
+std::string Dog::getIdea(int local) const{
 	return(this->_ideas->getIdeas(local));
 }

@@ -4,10 +4,6 @@ Animal::Animal(){
 	std::cout << "Animal default constructor called!\n";
 }
 
-Animal::Animal(const std::string type){
-	this->_type = type;
-	std::cout << "Animal custom constructor called!\n";
-}
 Animal::Animal(const Animal &copy)
 {
 	this->operator=(copy);
@@ -21,13 +17,13 @@ Animal &Animal::operator=(const Animal &assign){
 	if (this != &assign){
 		this->_type = assign._type;
 	}
-	std::cout << "Default Animal destructor called!\n";
+	std::cout << "Default Animal operator called!\n";
 	return *this;
 }
 std::string Animal::getType() const{
 	return this->_type;
 }
 
-void Animal::makeSound(){
+void Animal::makeSound() const{
 	std::cout << "BLAUBLAUBLAU" << std::endl;
 }

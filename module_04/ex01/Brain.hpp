@@ -11,8 +11,10 @@ private:
 public:
 	Brain();
 	Brain(Brain const &copy);
-	Brain &operator=(Brain const &assign);
 	~Brain();
+	
+	Brain &operator=(Brain const &assign);
+
 	std::string getIdeas(int local) const;
 	void setIdea(int local, std::string idea);
 };
