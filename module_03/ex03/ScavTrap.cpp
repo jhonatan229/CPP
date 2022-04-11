@@ -3,7 +3,6 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "Default Scavtrap constructor called!\n";
-	_name = "Default ScavTrap";
 	_lifePoints = 100;
 	_energiPoints = 50;
 	_attackDamage = 20;
@@ -57,5 +56,5 @@ void ScavTrap::attack(const std::string &target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode\n";
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode\n";
 }

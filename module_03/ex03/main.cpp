@@ -2,31 +2,30 @@
 
 int    main( void )
 {
-    DiamondTrap jhow = (DiamondTrap("Jhow"));
-	std::cout << "\n\n";
-    DiamondTrap rubi = (DiamondTrap(jhow));
-    std::cout << std::endl;
+    DiamondTrap art("Grey");
 
-    jhow.attack("'O tal do 17'");
-    jhow.ClapTrap::attack("'O tal do 17'");
-    jhow.takeDamage(70);
-    jhow.beRepaired(70);
+	std::cout << std::endl;
 
-    std::cout << std::endl;
-
-    jhow.highFivesGuys();
-
-    std::cout << std::endl;
-
-    jhow.takeDamage(70);
-    jhow.takeDamage(70);
-
-    std::cout << std::endl;
-
-    jhow.beRepaired(70);
-    jhow.attack("'O tal do 17'");
-
-    std::cout << std::endl;
+	art.attack("Agrona");
+	art.ClapTrap::attack("Windisom");
+	art.takeDamage(60);
+	art.beRepaired(60);
+	std::cout << std::endl;
+	art.guardGate();
+	art.highFivesGuys();
+	art.whoAmI();
+	std::cout << std::endl;
+	art.takeDamage(70);
+	art.takeDamage(70);
+	std::cout << std::endl;
+	art.beRepaired(70);
+	art.attack("Taci");
+	std::cout << std::endl;
+	art.guardGate();
+	art.highFivesGuys();
+	art.whoAmI();
+	std::cout << std::endl;
+	return ( 0 );
 
     return (0);
 }

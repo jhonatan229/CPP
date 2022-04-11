@@ -3,7 +3,6 @@
 FragTrap::FragTrap()
 {
 	std::cout << "Default FragTrap constructor called!\n";
-	_name = "Default FragTrap";
 	_lifePoints = 100;
 	_energiPoints = 100;
 	_attackDamage = 30;

@@ -34,5 +34,16 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &assign)
 	this->_energiPoints = assign._energiPoints;
 	this->_lifePoints = assign._lifePoints;
 	this->_max_health = assign._max_health;
+	std::cout << "operator DiamondTrap called!\n";
 	return *this;
+}
+
+void DiamondTrap::attack(std::string const & target )
+{
+	ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI()
+{
+	std::cout << "ClapTrap name: " << this->ClapTrap::_name << " Diamond name: " << _name;
 }
