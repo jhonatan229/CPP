@@ -15,9 +15,7 @@ Animal::~Animal(){
 }
 
 Animal &Animal::operator=(const Animal &assign){
-	if (this != &assign){
-		this->_type = assign._type;
-	}
+	this->_type = assign._type;
 	std::cout << "Default Animal operator called!\n";
 	return *this;
 }

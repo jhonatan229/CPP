@@ -10,7 +10,6 @@ private:
 	Brain *_ideas;
 public:
 	Dog();
-	Dog(const std::string type);
 	Dog(const Dog &copy);
 	~Dog();
 

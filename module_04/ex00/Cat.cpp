@@ -1,14 +1,10 @@
 #include "./Cat.hpp"
 
 Cat::Cat(){
-	_type = "cat";
+	this->_type = "Cat";
 	std::cout << "Cat default constructor called!\n";
 }
 
-Cat::Cat(const std::string type){
-	this->_type = type;
-	std::cout << "Cat custom constructor called!\n";
-}
 Cat::Cat(const Cat &copy): Animal(copy)
 {
 	this->operator=(copy);
@@ -19,9 +15,7 @@ Cat::~Cat(){
 	std::cout << "Default Cat destructor called!\n";
 }
 Cat &Cat::operator=(const Cat &assign){
-	if (this != &assign){
-		this->_type = assign._type;
-	}
+	this->_type = assign._type;
 	std::cout << "Default Cat operator called!\n";
 	return *this;
 }

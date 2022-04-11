@@ -6,11 +6,6 @@ Dog::Dog(){
 	std::cout << "Dog default constructor called!\n";
 }
 
-Dog::Dog(const std::string type){
-	this->_type = type;
-	_ideas = new Brain();
-	std::cout << "Dog custom constructor called!\n";
-}
 Dog::Dog(const Dog &copy): Animal(copy)
 {
 	this->operator=(copy);

@@ -7,12 +7,6 @@ Cat::Cat()
 	std::cout << "Cat default constructor called!\n";
 }
 
-Cat::Cat(const std::string type)
-{
-	this->_type = type;
-	_ideas = new Brain();
-	std::cout << "Cat custom constructor called!\n";
-}
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	this->operator=(copy);

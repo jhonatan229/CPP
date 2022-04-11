@@ -1,14 +1,10 @@
 #include "./Dog.hpp"
 
 Dog::Dog(){
-	_type = "dog";
+	this->_type = "dog";
 	std::cout << "Dog default constructor called!\n";
 }
 
-Dog::Dog(const std::string type){
-	this->_type = type;
-	std::cout << "Dog custom constructor called!\n";
-}
 Dog::Dog(const Dog &copy): Animal(copy)
 {
 	this->operator=(copy);
@@ -19,9 +15,7 @@ Dog::~Dog(){
 	std::cout << "Default Dog destructor called!\n";
 }
 Dog &Dog::operator=(const Dog &assign){
-	if (this != &assign){
-		this->_type = assign._type;
-	}
+	this->_type = assign._type;
 	std::cout << "Default Dog operator called!\n";
 	return *this;
 }
