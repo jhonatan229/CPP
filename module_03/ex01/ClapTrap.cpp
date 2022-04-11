@@ -27,7 +27,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
 	this->_energiPoints = assign._energiPoints;
 	this->_attackDamage = assign._attackDamage;
 	this->_max_health = assign._lifePoints;
-	std::cout << "Default ClapTrap destructor called!\n";
+	std::cout << "operator ClapTrap called!\n";
 	return *this;
 }
 

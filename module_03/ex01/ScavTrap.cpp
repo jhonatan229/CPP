@@ -35,7 +35,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &assign)
 	this->_energiPoints = assign._energiPoints;
 	this->_attackDamage = assign._attackDamage;
 	this->_max_health = assign._lifePoints;
-	std::cout << "Default ScavTrap destructor called!\n";
+	std::cout << "operator ScavTrap called!\n";
 	return *this;
 }
 
