@@ -22,9 +22,9 @@ WrongCat &WrongCat::operator=(const WrongCat &assign){
 	if (this != &assign){
 		this->_type = assign._type;
 	}
-	std::cout << "Default WrongCat destructor called!\n";
+	std::cout << "Default WrongCat operator called!\n";
 	return *this;
 }
-void WrongCat::makeSound(){
+void WrongCat::makeSound() const{
 	std::cout << "MIAUUUUUU!\n";
 }

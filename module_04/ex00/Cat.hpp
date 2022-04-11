@@ -11,7 +11,7 @@ public:
 	Cat(const Cat &copy);
 	Cat &operator=(const Cat &assign);
 	~Cat();
-	void makeSound();
+	void makeSound() const;
 };
 
 #endif // CAT_HPP

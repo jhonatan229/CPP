@@ -10,12 +10,12 @@ protected:
 	std::string _type;
 public:
 	WrongAnimal();
-	WrongAnimal(std::string const type);
 	WrongAnimal(WrongAnimal const &copy);
 	WrongAnimal &operator=(WrongAnimal const &assign);
 	~WrongAnimal();
+
 	std::string getType()const;
-	void makeSound();
+	void makeSound() const;
 };
 
 #endif // WRONGANIMAL_HPP

@@ -22,10 +22,10 @@ Dog &Dog::operator=(const Dog &assign){
 	if (this != &assign){
 		this->_type = assign._type;
 	}
-	std::cout << "Default Dog destructor called!\n";
+	std::cout << "Default Dog operator called!\n";
 	return *this;
 }
 
-void Dog::makeSound(){
+void Dog::makeSound() const{
 	std::cout << "AUUUUUU AU AUUUUUU!\n";
 }

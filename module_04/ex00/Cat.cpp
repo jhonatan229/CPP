@@ -22,10 +22,10 @@ Cat &Cat::operator=(const Cat &assign){
 	if (this != &assign){
 		this->_type = assign._type;
 	}
-	std::cout << "Default Cat destructor called!\n";
+	std::cout << "Default Cat operator called!\n";
 	return *this;
 }
 
-void Cat::makeSound(){
+void Cat::makeSound() const{
 	std::cout << "MIAUUUUUU!\n";
 }

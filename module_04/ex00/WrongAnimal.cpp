@@ -1,13 +1,9 @@
 #include "./WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(){
+WrongAnimal::WrongAnimal(): _type( "Tazmania" ){
 	std::cout << "WrongAnimal default constructor called!\n";
 }
 
-WrongAnimal::WrongAnimal(const std::string type){
-	this->_type = type;
-	std::cout << "WrongAnimal custom constructor called!\n";
-}
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	this->operator=(copy);
@@ -27,6 +23,6 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &assign){
 std::string WrongAnimal::getType() const{
 	return this->_type;
 }
-void WrongAnimal::makeSound(){
+void WrongAnimal::makeSound() const{
 	std::cout << "BLAUBLAUBLAU" << std::endl;
 }
