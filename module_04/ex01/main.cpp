@@ -27,10 +27,6 @@ void	brains(void) {
 		
 		std::cout << std::endl;
 
-		for (int i = 0; i < len; i++) {
-			delete animals[i];
-		}
-		
 		delete [] animals;
 	}
 
