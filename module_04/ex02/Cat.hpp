@@ -14,9 +14,9 @@ public:
 	Cat(const Cat &copy);
 	Cat &operator=(const Cat &assign);
 	~Cat();
-	void makeSound();
+	void makeSound() const;
 	void setIdea(int local, std::string memory);
-	std::string getIdea(int local);
+	std::string getIdea(int local) const;
 };
 
 #endif // CAT_HPP

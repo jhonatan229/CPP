@@ -12,11 +12,13 @@ public:
 	Dog();
 	Dog(const std::string type);
 	Dog(const Dog &copy);
-	Dog &operator=(const Dog &assign);
 	~Dog();
-	void makeSound();
+
+	Dog &operator=(const Dog &assign);
+	
+	void makeSound() const;
 	void setIdea(int local, std::string memory);
-	std::string getIdea(int local);
+	std::string getIdea(int local) const;
 };
 
 #endif // DOG_HPP

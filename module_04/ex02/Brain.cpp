@@ -18,8 +18,6 @@ Brain::~Brain(){
 	std::cout << "Brain default destructor called!\n";
 }
 std::string Brain::getIdeas(int local) const{
-	if (local >= 100)
-		return NULL;
 	return _ideas[local];
 }
 void Brain::setIdea(int local, std::string idea){

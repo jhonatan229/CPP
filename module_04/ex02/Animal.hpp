@@ -10,12 +10,11 @@ protected:
 	std::string _type;
 public:
 	Animal();
-	Animal(std::string const type);
 	Animal(Animal const &copy);
 	Animal &operator=(Animal const &assign);
 	virtual ~Animal();
 	std::string getType()const;
-	virtual void makeSound() = 0;
+	virtual void makeSound()const = 0;
 };
 
 #endif // ANIMAL_HPP
