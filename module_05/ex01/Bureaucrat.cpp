@@ -1,19 +1,20 @@
 #include "./Bureaucrat.hpp"
 
-const unsigned int min = 150;
-const unsigned int max = 1;
+const unsigned int max = 150;
+const unsigned int min = 1;
 
 Bureaucrat::Bureaucrat() : _name("Default Bureaucrat")
 {
 	_grade = 75;
 	std::cout << "Bureaucrat default constructor called!\n";
 }
-Bureaucrat::Bureaucrat(unsigned int grade, std::string name) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(unsigned int grade, std::string name) : _name(name)
 {
-	if (_grade <= max)
+	if (grade < min)
 		throw(Bureaucrat::GradeTooHighException());
-	else if(_grade >= min)
+	else if (grade > max)
 		throw(Bureaucrat::GradeTooLowException());
+	this->_grade = grade;
 	std::cout << "Bureaucrat custom constructor called!\n";
 }
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name("Default Bureaucrat")
@@ -47,29 +48,15 @@ unsigned int Bureaucrat::getGrade() const
 
 void Bureaucrat::addGrade()
 {
-	if (_grade == max)
+	if (_grade == min)
 		throw(Bureaucrat::GradeTooHighException());
 	_grade--;
 }
 void Bureaucrat::degrementGrade()
 {
-	if (_grade == min)
+	if (_grade == max)
 		throw(Bureaucrat::GradeTooLowException());
 	_grade++;
-}
-
-void Bureaucrat::signForm(Form &form){
-	try
-	{
-		form.beSigned(*this);
-		if (form.getIsSigned() == true)
-			std::cout << _name << " signed " << form.getName();
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-	}
-	
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
@@ -81,8 +68,22 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade too low!!!");
 }
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &beru)
+void Bureaucrat::signForm(Form &form)
 {
-	os << beru.getName() << ", bureaucrat grade " << beru.getGrade();
+	try
+	{
+		form.beSigned(*this);
+		if (form.getIsSigned() == true)
+			std::cout << _name << " signed " << form.getName() << "\n";
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &rhs)
+{
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "\n";
 	return os;
 }
