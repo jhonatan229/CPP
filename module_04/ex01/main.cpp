@@ -12,7 +12,7 @@ void	brains(void) {
 		delete i;
 	}
 	
-	std::cout << std::endl;
+	std::cout  << " VAMO VE OQ ACONTECE\n"<< std::endl;
 	
 	{
 		int len = 4;
@@ -24,13 +24,16 @@ void	brains(void) {
 			else
 				animals[i] = new Cat();
 		}
-		
-		std::cout << std::endl;
+
+		for (size_t i = 0; i < 4; i++)
+		{
+			delete animals[i];
+		}
+		std::cout <<"\n\n\n" << std::endl;
 
 		delete [] animals;
 	}
-
-	std::cout << std::endl;
+	
 }
 
 void	deep_or_shallow(void) {
@@ -42,6 +45,7 @@ void	deep_or_shallow(void) {
 
 
 	Cat* Cat2 = new Cat(*Cat1);
+	//Cat2 = new Cat(*Cat1);
 
 	std::cout << "Ideia 2 = " << Cat2->getIdea(0) << "\n";
 	Cat2->setIdea(0, "Ser um bom gatinho");

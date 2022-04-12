@@ -9,21 +9,21 @@ Cat::Cat()
 
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
+	_ideas = new Brain();
 	this->operator=(copy);
 	std::cout << "Copy Cat constructor called!\n";
 }
 
 Cat::~Cat()
 {
-	if (this->_ideas != NULL)
-		delete this->_ideas;
+	delete this->_ideas;
 	std::cout << "Default Cat destructor called!\n";
 }
 
 Cat &Cat::operator=(const Cat &assign)
 {
-	if (this->_ideas == NULL)
-		this->_ideas = new Brain();
+	delete _ideas;
+	this->_ideas = new Brain();
 	*(this->_ideas) = *(assign._ideas);
 	this->_type = assign._type;
 	std::cout << "Default Cat operator called!\n";
