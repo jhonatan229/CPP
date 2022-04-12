@@ -14,7 +14,7 @@ public:
 	PresidentialPardonForm(const PresidentialPardonForm &copy);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &assign);
 	~PresidentialPardonForm();
-	void		executeAction( Bureaucrat const & executor ) const;
+	void		execute( Bureaucrat const & executor ) const;
 };
 
 #endif // PRESIDENTIALPARDONFORM_HPP

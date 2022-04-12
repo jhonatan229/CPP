@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Default ShrubberyCreationForm destructor called!\n";
 }
 
-void ShrubberyCreationForm::executeAction(Bureaucrat const &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->mayExecute(executor) == true)
 	{

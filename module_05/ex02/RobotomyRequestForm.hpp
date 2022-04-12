@@ -15,7 +15,7 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm &copy);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &assign);
 	~RobotomyRequestForm();
-	void		executeAction(Bureaucrat const & executor) const;
+	void		execute(Bureaucrat const & executor) const;
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP

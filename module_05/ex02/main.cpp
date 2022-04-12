@@ -15,7 +15,7 @@ int main(void)
 		ShrubberyCreationForm form("Art");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -41,7 +41,7 @@ int main(void)
 		ShrubberyCreationForm form("Tess");
 		Bureaucrat grade = Bureaucrat(150, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -53,7 +53,7 @@ int main(void)
 		std::cout << "Esse vai da ruim!" << std::endl;
 		ShrubberyCreationForm form("Grey");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -97,7 +97,7 @@ int main(void)
 		RobotomyRequestForm form("Robo");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -110,7 +110,7 @@ int main(void)
 		RobotomyRequestForm form("Robo");
 		Bureaucrat grade = Bureaucrat(150, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -155,7 +155,7 @@ int main(void)
 		PresidentialPardonForm form("Pardon");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{
@@ -168,7 +168,7 @@ int main(void)
 		PresidentialPardonForm form("Pardon");
 		Bureaucrat grade = Bureaucrat(150, "Grey");
 		form.beSigned(grade);
-		form.executeAction(grade);
+		form.execute(grade);
 	}
 	catch (std::exception &e)
 	{

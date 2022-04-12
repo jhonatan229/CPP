@@ -26,7 +26,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "Default PresidentialPardonForm destructor called!\n";
 }
 
-void PresidentialPardonForm::executeAction(Bureaucrat const & executor ) const
+void PresidentialPardonForm::execute(Bureaucrat const & executor ) const
 {
 	if (this->mayExecute(executor) == true)
 		std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";

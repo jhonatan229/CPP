@@ -19,7 +19,7 @@ int main(void)
 		rrf = someRandomIntern.makeForm("presidential request", "Bender");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
 		rrf->beSigned( grade );
-		rrf->executeAction( grade );
+		rrf->execute( grade );
 		delete rrf;
 	}
 	std::cout << std::endl;
@@ -29,7 +29,7 @@ int main(void)
 		rrf = someRandomIntern.makeForm("shrubbery request", "Bender");
 		Bureaucrat grade = Bureaucrat(1, "Grey");
 		rrf->beSigned( grade );
-		rrf->executeAction( grade );
+		rrf->execute( grade );
 		delete rrf;
 	}
 	std::cout << std::endl;

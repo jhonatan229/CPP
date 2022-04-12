@@ -39,7 +39,7 @@ public:
 	void			beSigned(Bureaucrat const & boure);
 
 	bool			mayExecute( Bureaucrat const & executor ) const ;
-	virtual void	executeAction(Bureaucrat const & executor) const = 0;
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream& os, const Form& beru);

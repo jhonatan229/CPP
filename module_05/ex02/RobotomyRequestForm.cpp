@@ -26,7 +26,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "Default RobotomyRequestForm destructor called!\n";
 }
 
-void RobotomyRequestForm::executeAction(Bureaucrat const &executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->mayExecute(executor) == true)
 	{
