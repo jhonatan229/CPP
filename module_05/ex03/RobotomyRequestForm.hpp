@@ -12,10 +12,10 @@ private:
 public:
 	RobotomyRequestForm();
 	RobotomyRequestForm(std::string target);
-	RobotomyRequestForm(const RobotomyRequestForm *copy);
+	RobotomyRequestForm(const RobotomyRequestForm &copy);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &assign);
 	~RobotomyRequestForm();
-	void		executeAction() const;
+	void		executeAction(Bureaucrat const & executor) const;
 };
 
 #endif // ROBOTOMYREQUESTFORM_HPP

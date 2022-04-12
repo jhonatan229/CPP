@@ -3,20 +3,51 @@
 
 int main(void)
 {
-	std::cout << "\n///////TEST PRESIDENTIAL//////////\n";
-	Bureaucrat validburo;
-	Intern intern;
-	Form *robo = intern.makeForm("presidential request", "pesident form");
-	validburo.executeForm(*robo);
-	try
 	{
-		Form *robo = intern.makeForm("presidential request", "");
-		validburo.executeForm(*robo);
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		rrf->beSigned( grade );
+		grade.executeForm( *rrf );
+		delete rrf;
 	}
-	catch(const std::exception& e)
+	std::cout << std::endl;
 	{
-		std::cerr << e.what() << '\n';
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("presidential request", "Bender");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		rrf->beSigned( grade );
+		rrf->executeAction( grade );
+		delete rrf;
 	}
-	delete robo;
-	return 0;
+	std::cout << std::endl;
+	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery request", "Bender");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		rrf->beSigned( grade );
+		rrf->executeAction( grade );
+		delete rrf;
+	}
+	std::cout << std::endl;
+	try	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm(" creation", "Bender");
+		delete rrf;
+	} catch ( std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm(" creation", "");
+		delete rrf;
+	} catch ( std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
 }

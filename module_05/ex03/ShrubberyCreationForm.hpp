@@ -11,10 +11,10 @@ private:
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(const ShrubberyCreationForm *copy);
+	ShrubberyCreationForm(const ShrubberyCreationForm &copy);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &assign);
 	~ShrubberyCreationForm();
-	void		executeAction() const;
+	void		executeAction(Bureaucrat const & executor) const;
 };
 
 #endif // SHRUBBERYCREATIONFORM_HPP
