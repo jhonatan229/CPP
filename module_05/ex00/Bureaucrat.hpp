@@ -12,11 +12,11 @@ private:
 	unsigned int _grade;
 	class GradeTooHighException : public std::exception
 	{
-			virtual const char *what() const throw();
+		virtual const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-			virtual const char *what() const throw();
+		virtual const char *what() const throw();
 	};
 
 public:
@@ -31,6 +31,6 @@ public:
 	void degrementGrade();
 };
 
-std::ostream &operator<<(std::ostream& os, const Bureaucrat& beru);
+std::ostream &operator<<(std::ostream& os, const Bureaucrat& rhs);
 
 #endif // BUREAUCRAT_HPP

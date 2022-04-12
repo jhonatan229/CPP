@@ -1,26 +1,69 @@
 #include "./Bureaucrat.hpp"
 
-int main(void){
-	Bureaucrat bure(149, "marcos");
-	std::cout << bure << "\n";
+int main(void)
+{
+	std::cout << std::endl;
 	try
 	{
-		bure.degrementGrade();
+		Bureaucrat gradeGood = Bureaucrat(1, "Art");
+		std::cout << gradeGood;
 	}
-	catch(const std::exception& e)
+	catch (std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << std::endl;
 	}
-	std::cout << bure << "\n";
+	std::cout << std::endl;
 	try
 	{
-		bure.degrementGrade();
+		Bureaucrat gradeBad = Bureaucrat(151, "julius");
+		std::cout << gradeBad;
 	}
-	catch(const std::exception& e)
+	catch (std::exception &e)
 	{
-		std::cout << e.what() << '\n';
+		std::cout << e.what() << std::endl;
 	}
-	std::cout << "keodke";
-	Bureaucrat testerr(180, "julinho");
-	std::cout << testerr.getGrade();
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat gradeBad = Bureaucrat(0, "julius");
+		std::cout << gradeBad;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat gradeGood = Bureaucrat(1, "julius");
+		std::cout << gradeGood;
+		gradeGood.addGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat gradeGood = Bureaucrat(150, "julius");
+		std::cout << gradeGood;
+		gradeGood.degrementGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat gradeBad = Bureaucrat(-30, "julius");
+		std::cout << gradeBad;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	return (0);
 }
