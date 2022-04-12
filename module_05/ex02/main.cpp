@@ -5,34 +5,189 @@
 
 int main(void)
 {
+	std::cout << std::endl;
+	std::cout << "Execução Shrubberry! " << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	try
 	{
-		std::cout << "\n///////TEST ROBOTOMY//////////\n";
-		Bureaucrat validburo(10, "president");
-		Bureaucrat invalidburo(50, "governor");
-		Form *robo = new RobotomyRequestForm("robotinic");
-		validburo.executeForm(*robo);
-		std::cout << "\n\n\n\n";
-		invalidburo.executeForm(*robo);
-		delete robo;
+		std::cout << "Esse vai da bom!" << std::endl;
+		ShrubberyCreationForm form("Art");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
 	}
+	catch (std::exception &e)
 	{
-		std::cout << "\n///////TEST SHRUBBERY//////////\n";
-		Bureaucrat validburo(10, "president");
-		Bureaucrat invalidburo(140, "governor");
-		Form *robo = new ShrubberyCreationForm("old tree");
-		validburo.executeForm(*robo);
-		std::cout << "\n\n\n\n";
-		invalidburo.executeForm(*robo);
-		delete robo;
+		std::cout << e.what() << std::endl;
 	}
+	std::cout << std::endl;
+	try
 	{
-		std::cout << "\n///////TEST PRESIDENTIAL//////////\n";
-		Bureaucrat validburo(1, "president");
-		Bureaucrat invalidburo(10, "governor");
-		Form *robo = new PresidentialPardonForm("Pardon");
-		validburo.executeForm(*robo);
-		std::cout << "\n\n\n\n";
-		invalidburo.executeForm(*robo);
-		delete robo;
+		std::cout << "Esse vai da bom!" << std::endl;
+		ShrubberyCreationForm form("Grey");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
 	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruim!" << std::endl;
+		ShrubberyCreationForm form("Tess");
+		Bureaucrat grade = Bureaucrat(150, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruim!" << std::endl;
+		ShrubberyCreationForm form("Grey");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruim!" << std::endl;
+		ShrubberyCreationForm form("Grey");
+		Bureaucrat grade = Bureaucrat(150, "Grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "Execução Robotomy! " << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse talvez vai da bom!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse talvez vai da bom!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruim!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat(150, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruim!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat(150, "Grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "Execução Presidential! " << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << "Esse vai da bom!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da bom!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat(1, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruimmm!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat(150, "Grey");
+		form.beSigned(grade);
+		form.executeAction(grade);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::cout << "Esse vai da ruimmm!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat(150, "grey");
+		form.beSigned(grade);
+		grade.executeForm(form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	return (0);
 }

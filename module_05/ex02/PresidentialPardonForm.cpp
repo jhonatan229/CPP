@@ -1,33 +1,33 @@
 #include "./PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialForm", 25, 5)
 {
 	_target = "default target";
 	std::cout << "PresidentialPardonForm default constructor called!\n";
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialForm", 25, 5)
 {
 	_target = target;
 	std::cout << "PresidentialPardonForm custom constructor called!\n";
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm *copy) : Form("default", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : Form("PresidentialForm", 25, 5)
 {
-	this->_target = copy->_target;
+	this->operator=(copy);
 	std::cout << "PresidentialPardonForm Form constructor called!\n";
 }
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &assign)
 {
-	if (this != &assign)
-		*this = assign;
-	return *this;
+	this->_target = assign._target;
 	std::cout << "Default PresidentialPardonForm operator called!\n";
+	return *this;
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "Default PresidentialPardonForm destructor called!\n";
 }
 
-void PresidentialPardonForm::executeAction() const
+void PresidentialPardonForm::executeAction(Bureaucrat const & executor ) const
 {
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
+	if (this->mayExecute(executor) == true)
+		std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
 }

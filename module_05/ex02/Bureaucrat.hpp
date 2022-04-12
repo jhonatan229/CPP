@@ -7,6 +7,7 @@
 #include "./Form.hpp"
 
 class Form;
+
 class Bureaucrat
 {
 private:
@@ -14,11 +15,11 @@ private:
 	unsigned int _grade;
 	class GradeTooHighException : public std::exception
 	{
-			virtual const char *what() const throw();
+		virtual const char *what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-			virtual const char *what() const throw();
+		virtual const char *what() const throw();
 	};
 
 public:
@@ -31,10 +32,11 @@ public:
 	unsigned int getGrade() const;
 	void addGrade();
 	void degrementGrade();
-	void signForm(Form &form);
-	void executeForm(Form const & form);
+
+	void	signForm(Form & form);
+	void	executeForm(Form const & form);
 };
 
-std::ostream &operator<<(std::ostream& os, const Bureaucrat& beru);
+std::ostream &operator<<(std::ostream& os, const Bureaucrat& rhs);
 
 #endif // BUREAUCRAT_HPP

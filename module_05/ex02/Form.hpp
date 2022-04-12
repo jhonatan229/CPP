@@ -9,8 +9,8 @@ class Form
 {
 private:
 	const std::string	_name;
-	unsigned int		_gradeToSign;
-	unsigned int		_gradeToExec;
+	const unsigned int	_gradeToSign;
+	const unsigned int	_gradeToExec;
 	bool				_isSigned;
 	class GradeTooHighException : public std::exception
 	{
@@ -20,24 +20,26 @@ private:
 	{
 			virtual const char *what() const throw();
 	};
-	class GradeTooLowToExecException : public std::exception
-	{
-			virtual const char *what() const throw();
+	class FormNotSignedException : public std::exception {
+		virtual const char* what( void ) const throw();
 	};
 
 public:
 	Form();
 	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec);
 	Form(const Form &copy);
-	Form *operator=(const Form &assign);
 	virtual ~Form();
+
+	Form &operator=(const Form &assign);
+	
 	std::string		getName() const;
 	unsigned int	getGradeToSign() const;
 	unsigned int	getGradeToExec() const;
 	bool			getIsSigned() const;
-	void			beSigned(Bureaucrat boure) const;
-	void			execute(Bureaucrat const & executor) const;
-	virtual void		executeAction()const = 0;
+	void			beSigned(Bureaucrat const & boure);
+
+	bool			mayExecute( Bureaucrat const & executor ) const ;
+	virtual void	executeAction(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream& os, const Form& beru);

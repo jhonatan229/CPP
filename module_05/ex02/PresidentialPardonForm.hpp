@@ -11,10 +11,10 @@ private:
 public:
 	PresidentialPardonForm();
 	PresidentialPardonForm(std::string target);
-	PresidentialPardonForm(const PresidentialPardonForm *copy);
+	PresidentialPardonForm(const PresidentialPardonForm &copy);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &assign);
 	~PresidentialPardonForm();
-	void		executeAction() const;
+	void		executeAction( Bureaucrat const & executor ) const;
 };
 
 #endif // PRESIDENTIALPARDONFORM_HPP
