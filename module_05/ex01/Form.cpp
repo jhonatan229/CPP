@@ -8,7 +8,8 @@ Form::Form() : _name("Default form"), _gradeToSign(120), _gradeToExec(130), _isS
 	std::cout << "Form default constructor called!\n";
 }
 
-Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec) : _name(name), _isSigned(false), _gradeToExec(gradeToExec), _gradeToSign(gradeToSign)
+Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec) : _name(name), _gradeToSign(gradeToSign),
+																				   _gradeToExec(gradeToExec), _isSigned(false)
 {
 	if (this->_gradeToExec < max || this->_gradeToSign < max)
 		throw Form::GradeTooHighException();
@@ -17,8 +18,8 @@ Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec)
 	std::cout << "Form custom constructor called!\n";
 }
 
-Form::Form(const Form &copy) : _name(copy.getName()), _gradeToExec(copy.getGradeToExec()),
-							   _gradeToSign(copy.getGradeToSign())
+Form::Form(const Form &copy) : _name(copy.getName()),
+							   _gradeToSign(copy.getGradeToSign()), _gradeToExec(copy.getGradeToExec())
 {
 	this->operator=(copy);
 	std::cout << "Copy Form constructor called!\n";
@@ -40,7 +41,7 @@ unsigned int Form::getGradeToSign() const { return _gradeToSign; }
 unsigned int Form::getGradeToExec() const { return _gradeToExec; }
 bool Form::getIsSigned() const { return _isSigned; }
 
-void Form::beSigned(Bureaucrat const & boure)
+void Form::beSigned(Bureaucrat const &boure)
 {
 	if (boure.getGrade() > _gradeToSign)
 	{
