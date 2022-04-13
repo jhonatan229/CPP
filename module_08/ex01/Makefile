@@ -2,7 +2,7 @@ NAME = span
 
 all: $(NAME)
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=leak
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
 FILES = ./main.cpp ./Span.cpp
 
 CC = c++
