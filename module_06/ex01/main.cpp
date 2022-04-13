@@ -1,29 +1,26 @@
-#include <string>
-#include <iostream>
-#include <inttypes.h>
-
-struct Data
-{
-    int day;
-	std::string month;
-};
+#include "./convertData.hpp"
 
 uintptr_t serialize(Data* ptr){
-	return reinterpret_cast<uintptr_t> (ptr);
+	return (reinterpret_cast<uintptr_t> (ptr));
 }
 
-Data* deserialize(uintptr_t raw){
-	return reinterpret_cast<Data*>(raw);
+Data *deserialize(uintptr_t raw){
+	return (reinterpret_cast<Data*>(raw));
 }
 
 int main(void)
 {
-	Data data;
+	uintptr_t	raw;
+	Data		data;
+	Data*		dataPtr;
 	data.day = 3;
 	data.month = "julho";
-	uintptr_t pt = serialize(&data);
-	std::cout << "int ptr: "<< pt << "\ndata before:" << &data << std::endl;
-	Data *datan = deserialize(pt);
-	std::cout << "data after: " << datan << std::endl;
-	return (0);
+	std::cout << "Data address " << &data << std::endl;
+
+	raw = serialize(&data);
+	std::cout << "Serialize Data: " << raw << std::endl;
+
+	dataPtr = deserialize(raw);
+	std::cout << "Deserialization data: " << dataPtr << std::endl;
+	return ( 0 );
 }
