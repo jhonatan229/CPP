@@ -2,7 +2,7 @@ NAME = array
 
 all: $(NAME)
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=leak
 FILES = ./main.cpp
 
 CC = c++

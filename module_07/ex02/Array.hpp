@@ -7,52 +7,47 @@ template <typename T>
 class Array
 {
 private:
-	T *list;
-	unsigned int len;
+	T *_array;
+	unsigned int _len;
 
 public:
 	Array(void)
 	{
-		this->list = NULL;
-		this->len = 0;
+		this->_array = NULL;
+		this->_len = 0;
 		std::cout << "default constructor called\n";
 	}
-	Array(unsigned int len)
+	Array(unsigned int _len)
 	{
-		this->list = new T[len];
-		this->len = len;
+		this->_array = new T[_len];
+		this->_len = _len;
 	}
-	Array(const Array &copy)
+	Array(const Array &copy) : _array(NULL)
 	{
 		this->operator=(copy);
 	}
 	Array &operator=(const Array &assign)
 	{
-		if (this != &assign)
-		{
-			if (list)
-				delete[] list;
-			list = new T[assign.len];
-			this->len = assign.len;
-			for (unsigned int i = 0; i < this->len; i++)
-				this->list[i] = assign.list[i];
-		}
+		delete[] _array;
+		_array = new T[assign._len];
+		this->_len = assign._len;
+		for (unsigned int i = 0; i < this->_len; i++)
+			this->_array[i] = assign._array[i];
 		return (*this);
 	}
-	T &operator[](unsigned int index)
+	T &operator[](unsigned int index) const
 	{
-		if (index >= len)
+		if (index >= _len)
 			throw std::runtime_error("ERROR: bad memory acess");
-		return list[index];
+		return _array[index];
 	}
 	unsigned int size()
 	{
-		return this->len;
+		return this->_len;
 	}
 	~Array()
 	{
-		if (list)
-			delete[] list;
+		delete[] this->_array;
 	}
 };
 
