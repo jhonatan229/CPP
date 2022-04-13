@@ -1,26 +1,4 @@
-#include <stdlib.h>
-#include <time.h>
-#include <iostream>
-
-class Base
-{
-public:
-	virtual ~Base();
-};
-
-Base::~Base(){};
-
-class A : public Base
-{
-};
-
-class B : public Base
-{
-};
-
-class C : public Base
-{
-};
+#include "./Base.hpp"
 
 Base *generate(void)
 {
@@ -35,7 +13,6 @@ Base *generate(void)
 		rtn = new B();
 	else
 		rtn = new C();
-	std::cout << num << std::endl;
 	return (rtn);
 }
 //retorna null se o cast foi mal sucedido 
@@ -53,19 +30,22 @@ void identify(Base *p)
 void identify(Base& p){
 	try
 	{
-		A a = dynamic_cast<A &>(p);
+		A &a = dynamic_cast<A &>(p);
+		(void)a;
 		std::cout << "type A\n";
 	}
 	catch(...){}
 	try
 	{
-		B b = dynamic_cast<B &>(p);
+		B &b = dynamic_cast<B &>(p);
+		(void)b;
 		std::cout << "type B\n";
 	}
 	catch(...){}
 	try
 	{
-		C c = dynamic_cast<C &>(p);
+		C &c = dynamic_cast<C &>(p);
+		(void)c;
 		std::cout << "type C\n";
 	}
 	catch(...){}
@@ -77,4 +57,5 @@ int main(void)
 	identify(test);
 	identify(*test);
 	delete test;
+	return (0);
 }
