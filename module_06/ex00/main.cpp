@@ -33,7 +33,7 @@ void printOnlyOne(float number, const char *str)
 
 	std::cout << number;
 	fractional = std::modf(number, &ref);
-	if (fractional == 0 && isinff(number))
+	if (fractional == 0 && isinff(number) == 0)
 		std::cout << ".0";
 	if (strcmp(str, "float") == 0)
 		std::cout << "f";
@@ -50,7 +50,10 @@ void tryFloat(char *str)
 	std::cout << "float: ";
 	if (isascii(str[0]) && strlen(str) == 1)
 	{
-		printOnlyOne(static_cast<float>(str[0]), "float");
+		if (isdigit(str[0]))
+			printOnlyOne(static_cast<float>(str[0] - 48), "float");
+		else
+			printOnlyOne(static_cast<float>(str[0]), "float");
 	}
 	else if (strlen(dif) <= 1 && (dif[0] == 'f' || dif[0] == '\0'))
 	{
@@ -71,7 +74,10 @@ void tryDouble(char *str)
 	std::cout << "double: ";
 	if (isascii(str[0]) && strlen(str) == 1)
 	{
-		printOnlyOne(static_cast<float>(str[0]), "double");
+		if (isdigit(str[0]))
+			printOnlyOne(static_cast<float>(str[0] - 48), "double");
+		else
+			printOnlyOne(static_cast<float>(str[0]), "double");
 	}
 	else if (strlen(dif) <= 1 && (dif[0] == 'f' || dif[0] == '\0'))
 	{
@@ -87,7 +93,12 @@ void tryInt(char *str)
 {
 	std::cout << "Int: ";
 	if (isascii(str[0]) && strlen(str) == 1)
-		std::cout << static_cast<int>(str[0]);
+	{
+		if (isdigit(str[0]))
+			std::cout << static_cast<int>(str[0] - 48);
+		else
+			std::cout << static_cast<int>(str[0]);
+	}
 	else if (isAllFloat(str) == 0)
 	{
 		std::cout << atoi(str);
