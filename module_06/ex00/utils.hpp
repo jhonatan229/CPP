@@ -3,9 +3,8 @@
 
 #include <iostream>
 #include <string.h>
-#include <stdlib.h>
-#include <iomanip>
 #include <cmath>
+#include <stdint.h>
 
 int isAllNum(char *str);
 int isAllFloat(char *str);

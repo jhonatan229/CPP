@@ -7,8 +7,10 @@ void tryChar(char *str)
 	{
 		if (static_cast<int>(str[0]) < 32)
 			std::cout << "Non displayable";
-		if (isdigit(str[0]))
+		else if (isdigit(str[0]))
 			std::cout << "Non displayable";
+		else
+			std::cout << "'" << str[0] << "'";
 	}
 	else if (isAllNum(str) == 0)
 	{
@@ -27,13 +29,10 @@ void tryChar(char *str)
 	std::cout << std::endl;
 }
 
-void printOnlyOne(float number, const char *str)
+void printOnlyOne(long double number, const char *str)
 {
-	float fractional, ref;
-
 	std::cout << number;
-	fractional = std::modf(number, &ref);
-	if (fractional == 0 && isinff(number) == 0)
+	if (number == static_cast<int>(number) && isinff(number) == 0)
 		std::cout << ".0";
 	if (strcmp(str, "float") == 0)
 		std::cout << "f";
@@ -43,17 +42,24 @@ void printOnlyOne(float number, const char *str)
 void tryFloat(char *str)
 {
 	char *dif;
-	float d;
+	long double d;
 
 	d = strtod(str, &dif);
-	// std::cout << dif << "    " << str << "    " << (float)d;
 	std::cout << "float: ";
+	if (isinff(d) == -1){
+		std::cout << "-inff\n";
+		return;
+	}
+	if (isinff(d) == 1){
+		std::cout << "+inff\n";
+		return;
+	}
 	if (isascii(str[0]) && strlen(str) == 1)
 	{
 		if (isdigit(str[0]))
-			printOnlyOne(static_cast<float>(str[0] - 48), "float");
+			printOnlyOne(static_cast<long double>(str[0] - 48), "float");
 		else
-			printOnlyOne(static_cast<float>(str[0]), "float");
+			printOnlyOne(static_cast<long double>(str[0]), "float");
 	}
 	else if (strlen(dif) <= 1 && (dif[0] == 'f' || dif[0] == '\0'))
 	{
@@ -61,23 +67,33 @@ void tryFloat(char *str)
 	}
 	else
 	{
-		std::cout << "Impossible\n";
+		std::cout << "impossible\n";
 	}
 }
 
 void tryDouble(char *str)
 {
 	char *dif;
-	float d;
+	long double d;
 
 	d = strtod(str, &dif);
 	std::cout << "double: ";
+	if (isinff(d) == -1){
+		std::cout << "-inf\n";
+		return;
+	}
+	if (isinff(d) == 1){
+		std::cout << "+inf\n";
+		return;
+	}
+	if (isinff(d) && (str[0] == '+' || strlen(str) == 3))
+		std::cout << '+';
 	if (isascii(str[0]) && strlen(str) == 1)
 	{
 		if (isdigit(str[0]))
-			printOnlyOne(static_cast<float>(str[0] - 48), "double");
+			printOnlyOne((str[0] - 48), "double");
 		else
-			printOnlyOne(static_cast<float>(str[0]), "double");
+			printOnlyOne((str[0]), "double");
 	}
 	else if (strlen(dif) <= 1 && (dif[0] == 'f' || dif[0] == '\0'))
 	{
@@ -85,7 +101,7 @@ void tryDouble(char *str)
 	}
 	else
 	{
-		std::cout << "Impossible\n";
+		std::cout << "impossible\n";
 	}
 }
 
@@ -101,21 +117,26 @@ void tryInt(char *str)
 	}
 	else if (isAllFloat(str) == 0)
 	{
-		std::cout << atoi(str);
+		long int total = atol(str);
+		if (total > INT32_MAX || total < INT32_MIN)
+			std::cout << "impossible";
+		else
+			std::cout << atoi(str);
 	}
 	else
-		std::cout << "Impossible";
+		std::cout << "impossible";
 	std::cout << std::endl;
 }
 
 int main(int argv, char *argc[])
 {
-	if (argv != 2)
+	if (argv != 2){
+		std::cout << "Wrong Parameters!" << std::endl;
 		return (1);
+	}
 	tryChar(argc[1]);
 	tryInt(argc[1]);
 	tryFloat(argc[1]);
 	tryDouble(argc[1]);
-	// std::cout << typeid(]) << std::endl;
-	return 0;
+	return (0);
 }

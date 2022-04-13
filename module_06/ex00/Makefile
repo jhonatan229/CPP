@@ -2,7 +2,7 @@ NAME = compile
 
 all: $(NAME)
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=leak
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors #-fsanitize=leak 
 FILES = ./main.cpp ./utils.cpp
 
 CC = c++
