@@ -13,12 +13,12 @@ void swap(T &numA, T &numB)
 }
 
 template<typename T>
-T	min(T &numA, T &numB){
+T	min(T const &numA, T const &numB){
 	return ((numA < numB) ? numA : numB);
 }
 
 template<typename T>
-T	max(T &numA, T &numB){
+T	max(T const &numA, T const &numB){
 	return ((numA > numB) ? numA : numB);
 }
 

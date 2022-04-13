@@ -5,7 +5,7 @@
 #include <string>
 
 template <typename T>
-void iter(T *lst, unsigned int size, void (*fun)(T)){
+void iter(T *lst, const unsigned int size, void (*fun)( const T&)){
 	for (unsigned int i = 0; i < size; i++)
 	{
 		fun(lst[i]);
@@ -13,7 +13,7 @@ void iter(T *lst, unsigned int size, void (*fun)(T)){
 }
 
 template <typename T>
-void myPrint(T content){
+void myPrint(T const content){
 	std::cout << content << " *-* \n";
 }
 
