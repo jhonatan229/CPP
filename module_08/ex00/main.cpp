@@ -1,19 +1,23 @@
 #include "./easyfind.hpp"
-#include <array>
+#include <vector>
 
-int main(void)
-{
-	try
+int	main( void ) {
 	{
-		std::array<int,5> myarray = { 5, 19, 77, 34, 99 };
-		std::cout << *easyfind(myarray, 19) << std::endl;
-		std::cout << *easyfind(myarray, 49) << std::endl;
+		int myArray[5] = { 5, 10, 15, 20, 25 };
+		std::vector<int> vec(myArray, myArray + sizeof(myArray) / sizeof(int) );
+		std::cout << "Number: " << *easyfind( vec, 5) << std::endl;
 	}
-	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::vector<int> myVector ( 10 );
+		std::vector<int>::size_type n = myVector.size();
+
+		for (unsigned i = 0; i < n; i++) myVector[i] = i;
+		std::cout << std::endl;
+		for (unsigned i = 0; i < n; i++)
+			std::cout << ' ' << myVector[i];
+		std::cout << std::endl;
+		std::cout << "Number: " << *easyfind( myVector, 8 ) << std::endl;
+
 	}
-	
-	
-	return (0);
+	return ( 0 );
 }
