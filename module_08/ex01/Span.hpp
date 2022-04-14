@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <exception>
+#include <stdint.h>
 
 class Span
 {
@@ -19,6 +21,7 @@ public:
 	~Span();
 
 	void addNumber(int number);
+	void addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end );
 	int shortestSpan();
 	int longestSpan();
 };
